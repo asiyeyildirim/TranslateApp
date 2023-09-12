@@ -41,6 +41,9 @@ body{
     background-color: var(--light-bg-color);
 }
 
+
+
+
 .card.from{
     display: flex;
     align-items: center;
@@ -126,6 +129,90 @@ transition:  all 0.3s;
  
  
  }
+ .container .text-area {
+    width: 100%;
+    padding: 25px;
+    margin: 10px 0;
+    background-color: transparent;
+    resize: none;
+    outline: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 18px;
+    border-bottom: 1px solid var(--light-bg-color);
+}
+
+.container .text-area:focus {
+    border-bottom: 2px solid var(--primary-color); /* Odaklandığında çizgiyi kalınlaştır */
+}
 
 
+.container .text-area .chars{
+  
+    bottom: 0;
+    right: 0;
+    padding: 10px 20px;
+    font-size: 0.8rem;
+    color: var(--light-text-color);
+    
+}
+
+
+.card-bottom{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 20px;
+    border-top: 2px solid var(--bg-color);
+
+}
+
+
+.card-bottom-to{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 50px;
+    border-top: 2px solid var(--bg-color);
+    
+
+}
+
+.card-bottom p{
+    margin-bottom: 20px;
+}
+.card-bottom label {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 0 20px;
+    cursor: pointer;
+    border-radius: 30px;
+    background-color: var(--bg-color);
+}
+.card-bottom label:hover {
+    color: var(--text-color);
+    background-color: var(--primary-color);
+}
+
+.card-bottom span{
+    font-size: 12px;
+    pointer-events: none;
+}
+
+.card-bottom label ion-icon {
+    font-size: 20px;
+}
+#background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Place the video behind other elements */
+}
 
