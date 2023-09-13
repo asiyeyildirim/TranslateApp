@@ -94,5 +94,52 @@ function translate() {
     outputTextElem.value = tempInputText;
     translate();
 
-  })
+  });
+
+  const uploadDocument = document.querySelector("#upload-document"),
+  uploadTitle = document.querySelector("#upload-title");
+
+  uploadDocument.addEventListener("change", (e) => {
+    const file  =e.target.files[0];
+
+    if(
+        file.type == "application/pdf" ||
+        file.type == "application/msword" ||
+        file.type == "text/plain" 
+
+    ){
+
+        uploadTitle.innerHTML = file.name;
+        const reader = new FileReader();
+        reader.readAsText(file);
+        reader.onload = (e) => {
+            inputTextElem.value  = e.target.result;
+            translate();
+        };
+    }
+    else{
+        alert( "Please select a valid file");
+    }
+  });
+
+  const downloadDocument = document.querySelector("#download-document");
+  
+
+  downloadDocument.addEventListener("click", (e) => {
+
+    const outputText = outputTextElem.value;
+    const outputLanguage =
+    outputLanguageDropdown.querySelector(".selected").dataset.value;
+ 
+
+    if(outputText) {
+        const blob = new Blob([outputText], {type : "text/plain"});
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.download = `translated-to-${outputLanguage}.txt`;
+        a.href = url;
+        a.click();
+
+    }
+  });
   
